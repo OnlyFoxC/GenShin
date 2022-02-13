@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>原神抽卡模拟器</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/card.json"></script>
+		<script src="js/index.js"></script>
+		<script src="js/compute.js"></script>
+	</head>
+	<body onload="startHtml()">
+		<div id="editionDiv" onmouseover="" onmouseout="">
+			<h2>版本</h2><p id="editionDiv_p"></p>
+			<select id="editionList" onchange="changeEdition()"></select>
+		</div>
+		<div id="bg">
+			<input type="button" id="close" onclick="closeWin()"/>
+			<input type="button" id="tenTimes" onclick="wish(10)"/>
+			<input type="button" id="once" onclick="wish(1)"/>
+			<input type="button" id="mySelf" onclick="window.location='https://space.bilibili.com/148008442';"/>
+			<input type="button" id="details"/>
+			<input type="button" id="record" onclick="historys()"/>
+			<input type="button" id="left" onclick="LRBtn(-1)"/>
+			<input type="button" id="right" onclick="LRBtn(1)"/>
+			<ul id="headList"></ul>
+			<div id="card"></div>
+		</div>
+		<div id="results">
+			<input type="button" id="closeSmallCard" onclick="closeSmallCard()"/>
+			<ul id="smallCardList"></ul>
+		</div>
+		<div id='videoDiv'>
+			<video id="video"></video>
+			<input type="button" id="outVideo" value="跳过>" onclick="outV()"/>
+		</div>
+		<div id="historysDiv">
+			<div id="historysHeader">
+				<input type="button" onclick="historysBack()" id="historysBack" value="《《返回"/>
+				<input type="button" onclick="clearHistorys()" id="clearHistorys" value="删除记录"/>
+			</div>
+			<div id="historysTableDiv">
+				<table id="historysTable"></table>
+			</div>
+		</div>
+	</body>
+</html>
+
