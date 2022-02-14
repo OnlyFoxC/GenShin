@@ -17,10 +17,10 @@ function wish(num) {//num=抽卡次数
 	var role5=new Array;
 	var weapons5=new Array;
 	for(var i in 祈愿物品.五星物品){
-		if(i>=42&&i<=46){
+		if(祈愿物品.五星物品[i].常驻角色!=undefined){
 			role5.push(祈愿物品.五星物品[i].常驻角色.replace('；',''));
 		}
-		if(i>=16&&i<=25){
+		if(祈愿物品.五星物品[i].常驻武器!=undefined){
 			weapons5.push(祈愿物品.五星物品[i].常驻武器.replace('；',''));
 		}
 	}
@@ -136,7 +136,12 @@ function randomTh(sort,str3,UP4,UP5,role4,role5,weapons4,weapons5){//随机选�
 	}else{
 		var starN=star(sort);
 		if(starN==5){
-			name=str5[Math.round(Math.random()*(str5.length-1))];
+			var isU5=isUP5();
+			if(isU5==1){
+				name=UP5[Math.round(Math.random()*(UP5.length-1))];
+			}else{
+				name=str5[Math.round(Math.random()*(str5.length-1))];
+			}
 			for(var i in UP5){
 				if(UP5[i].indexOf(name)!=-1){
 					name+='U5';
@@ -163,7 +168,20 @@ function randomTh(sort,str3,UP4,UP5,role4,role5,weapons4,weapons5){//随机选�
 	}
 	return name;
 }
-
+function isUP5(){
+	var historys=readLocalStorage();
+	for(var i=historys.length-1;i>=0;i--){
+		//在180内 是五星  但不是UP，就是保底
+		if(i<180&&historys[i].indexOf('5')!=-1){
+			if(historys[i].indexOf('U')==-1){//不是UP
+				return 1;
+			}
+			return 0;
+		}
+		if(i==180){break;}
+	}
+	return 0;
+}
 function isEnsure(){//保底
 	var historys=readLocalStorage();
 	//  10次4星  20次4星   90次5星  180次5星
@@ -185,7 +203,7 @@ function isEnsure(){//保底
 		if(historys[i].indexOf('U5')!=-1&&n<179){
 			great5=0; 
 		}
-		if(n>180){break;}
+		if(n==180){break;}
 	}
 	if(great5==1){
 		return 15;
@@ -282,16 +300,18 @@ function outV(){
 function star(sort){//随机抽取几星
 	//var num=Math.round(Math.random()*(y-x)+x);	//2.550% 基础4星武器
 	var num;
-	if(sort!='武器'){
+	if(sort!='武器'){//角色与常驻
 		num=Math.round(Math.random()*(1000-1)+1);
 		if(num<=6){
+		//if(num<=600){
 			return 5;
 		}else if(num<=57){
 			return 4;
 		}
-	}else{//角色与常驻
+	}else{
 		num=Math.round(Math.random()*(1000-1)+1);
 		if(num<=7){
+		//if(num<=600){
 			return 5;
 		}else if(num<=67){
 			return 4;
