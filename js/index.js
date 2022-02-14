@@ -24,17 +24,18 @@ function closeWin(){
 function loadEdition(){
 	var editionArray=new Array;
 	for(var i=0;i<data.length;i++){
-		if(i==0){
-			editionArray.push(data[i].版本号);
-		}else{
-			if(data[i].版本号!=data[i-1].版本号){
+		if(i!=data.length-1){
+			if(i==0){
 				editionArray.push(data[i].版本号);
+			}else{
+				if(data[i].版本号!=data[i-1].版本号){
+					editionArray.push(data[i].版本号);
+				}
 			}
 		}
 	}
 	for(var i=0;i<editionArray.length;i++){
-		document.getElementById('editionList')
-		.options.add(new Option(editionArray[i]));
+		document.getElementById('editionList').options.add(new Option(editionArray[i]));
 	}
 }
 function changeEdition(){
@@ -57,7 +58,7 @@ function changeEdition(){
 		}
 	}
 	var permanentli=document.createElement('li');
-	permanentli.id='常驻';
+	permanentli.id='奔行世间';
 	permanentli.className='select';
 	//给 li 控件添加点击事件
 	permanentli.setAttribute('onclick','changeCard(id)');
@@ -101,10 +102,6 @@ function changeCard(id){
 	var card=document.getElementById('card');
 	card.style.backgroundImage='url('+imgUrl+')';
 }
-function test(){
-	var close=document.getElementById('close');
-	close.onclick='changeCard("1.0（上半）杯装之诗")';
-}
 function LRBtn(d){
 	var headList=document.getElementById('headList');
 	var n;
@@ -133,23 +130,19 @@ function historys(){
 	}
 	var historysAry=readLocalStorage();
 	for(var i=historysAry.length-1;i>=0;i--){
-		historysAry[i].replace('U','');
 		if(historysAry[i].indexOf('5')!=-1){
 			var tr=document.createElement('tr');
-			historysAry[i].replace('5','');
-			tr.innerHTML='<td>'+(i+1)+'</td><td style="color: gold;">'+historysAry[i]+'</td>';
+			tr.innerHTML='<td>'+(i+1)+'</td><td style="color: gold;">'+historysAry[i].replace('5','').replace('U','')+'</td>';
 			historysTable.appendChild(tr);
 		}
 		if(historysAry[i].indexOf('4')!=-1){
 			var tr=document.createElement('tr');
-			historysAry[i].replace('5','');
-			tr.innerHTML='<td>'+(i+1)+'</td><td style="color:#ff69f8;">'+historysAry[i]+'</td>';
+			tr.innerHTML='<td>'+(i+1)+'</td><td style="color:#ff69f8;">'+historysAry[i].replace('4','').replace('U','')+'</td>';
 			historysTable.appendChild(tr);
 		}
 		if(historysAry[i].indexOf('3')!=-1){
 			var tr=document.createElement('tr');
-			historysAry[i].replace('3','');
-			tr.innerHTML='<td>'+(i+1)+'</td><td style="color:#3ebcff;">'+historysAry[i]+'</td>';
+			tr.innerHTML='<td>'+(i+1)+'</td><td style="color:#3ebcff;">'+historysAry[i].replace('3','')+'</td>';
 			historysTable.appendChild(tr);
 		}
 	}
