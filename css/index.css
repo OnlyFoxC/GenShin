@@ -114,7 +114,7 @@ input:hover{
 	left: 50%;
 	transform: translate(-50%,-50%);
 	display: none;
-	background-color: black;
+	background-color: none;
 	z-index: 3;
 }
 #video{
@@ -171,7 +171,7 @@ input:hover{
 	border-bottom: 3px solid #d3bc8d;
 	border-radius:0 0 60px 0;
 	overflow: hidden;
-	z-index:1;
+	z-index:0;
 }
 #editionDiv h2{
 	margin-left: 55px;
@@ -321,7 +321,7 @@ input:hover{
 #historysTable{
 	text-align: center;
 	width: 100%;
-	height: 288px;
+	height: 100%;
 	background-color: white;
 }
 #historysTable td{
@@ -332,4 +332,201 @@ input:hover{
 #historysTable td:hover{
 	border-bottom: 3px solid cadetblue;
 }
-
+@media screen and (min-width:940px) and (min-height:526px) {
+	#bg{
+		width: 940px;
+		height: 526px;
+	}
+	#close{
+		width: 24px;
+		height: 24px;
+		left: 890px;
+		top: -5px;
+	}
+	#tenTimes{
+		width: 170px;
+		height: 40px;
+		left: 714px;
+		top: 473.5px;
+	}
+	#once{
+		width: 170px;
+		height: 40px;
+		left: 357px;
+		top: 473.5px;
+	}
+	#mySelf{
+		width: 90px;
+		height: 27px;
+		top: 475px;
+		left: -348px;
+	}
+	#details{
+		width: 90px;
+		height: 27px;
+		top: 475px;
+		left: -348px;
+	}
+	#record{
+		width: 90px;
+		height: 27px;
+		top: 475px;
+		left: -348px;
+	}
+	#left{
+		width: 17px;
+		height: 21px;
+		top:231px;
+		left: -630px;
+	}
+	#right{
+		width: 17px;
+		height: 21px;
+		top:231px;
+		left: 210px;
+	}
+	#card{
+		width: 640px;
+		height: 316px;
+	}
+	#videoDiv{
+		min-width: 940px;
+		min-height: 526px;
+	}
+	#outVideo{
+		left: 880px;
+		top: 15px;
+		font-weight: 900;
+	}
+	#results{
+		width: 940px;
+		height: 526px;
+	}
+	#closeSmallCard{
+		width: 25px;
+		height: 25px;
+		left: 900px;
+		top: 10px;
+	}
+	#smallCardList{
+		top:-30px;
+		left: 55px;
+	}
+	#smallCardList li{
+		width: 75px;
+		height: 494px;
+	}
+	#smallCardList li img{
+		width: 65px;
+	}
+	#historysDiv{
+		width: 940px;
+		height: 526px;
+	}
+	#historysTableDiv{
+		height: 478px;
+	}
+}
+@media screen and (min-width:1250px) and (min-height:700px) {
+	#bg{
+		min-width: 1250px;
+		min-height: 700px;
+	}
+	#close{
+		background-image: url(../img/button/关闭.png);
+		width: 31px;
+		height: 31px;
+		left: 1183px;
+		top: -9px;
+	}
+	#tenTimes{
+		background-image: url(../img/button/祈愿10次.png);
+		width: 230px;
+		height:56px;
+		left: 949px;
+		top: 629px;
+	}
+	#once{
+		background-image: url(../img/button/祈愿1次.png);
+		width: 230px;
+		height:56px;
+		left: 470px;
+		top: 629px;
+	}
+	#mySelf{
+		background-image: url(../img/button/兑换.png);
+		width: 118px;
+		height: 33px;
+		top: 626px;
+		left: -466px;
+	}
+	#details{
+		background-image: url(../img/button/详情.png);
+		width: 118px;
+		height: 33px;
+		top: 626px;
+		left: -464px;
+	}
+	#record{
+		background-image: url(../img/button/历史记录.png);
+		width: 118px;
+		height: 33px;
+		top: 626px;
+		left: -462px;
+	}
+	#left{
+		background-image: url(../img/button/左.png);
+		width: 25px;
+		height: 32px;
+		top:310px;
+		left: -829px;
+	}
+	#right{
+		background-image: url(../img/button/右.png);
+		width: 25px;
+		height: 32px;
+		top:310px;
+		left: 290px;
+	}
+	#card{
+		width: 860px;
+		height: 424px;
+	}
+	#videoDiv{
+		min-width: 1250px;
+		min-height: 700px;
+	}
+	#outVideo{
+		left: 1190px;
+		top: 20px;
+		font-weight: 900;
+	}
+	#results{
+		width: 1250px;
+		height: 700px;
+	}
+	#closeSmallCard{
+		width: 33px;
+		height: 33px;
+		left: 1190px;
+		top: 20px;
+	}
+	#smallCardList{
+		top:-30px;
+		left: 100px;
+	}
+	#smallCardList li{
+		width: 98px;
+		height: 665px;
+	}
+	#smallCardList li img{
+		width: 80px;
+	}
+	#historysDiv{
+		width: 1250px;
+		height: 700px;
+	}
+	#historysTableDiv{
+		height: 650px;
+	}
+}
