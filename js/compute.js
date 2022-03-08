@@ -58,7 +58,7 @@ function wish(num) {//num=抽卡次数
 		}
 	}
 	videoPS(n);
-	setTimeout(function(){showResults(endResults);}, 300);
+	setTimeout(function(){showResults(endResults);}, 1000);
 }
 function randomTh(sort,str3,UP4,UP5,role4,role5,weapons4,weapons5){//随机选择物品
 	var name;
